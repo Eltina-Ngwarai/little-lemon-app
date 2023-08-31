@@ -1,24 +1,40 @@
-function Nav() {
+import logo from "../components/images/Logo.svg";
+import React, { useState } from "react";
+import "./Nav.css";
+
+const Nav = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
   return (
-    <div>
+    <nav className={`navbar ${menuOpen} ? "open": ""`}>
+      <a href="/">
+        <img src={logo} />
+      </a>
+      <div>
+        <div className="bar"></div>
+        <div className="bar"></div>
+        <div className="bar"></div>
+      </div>
       <ul>
         <li>
-          <a>Home</a>
+          <a href="/">Home</a>
         </li>
         <li>
-          <a>About</a>
+          <a href="/">About</a>
         </li>
         <li>
-          <a>Reservations</a>
+          <a href="/">Reservations</a>
         </li>
         <li>
-          <a>Order Online</a>
+          <a href="/">Order Online</a>
         </li>
         <li>
-          <a>Login</a>
+          <a href="/">Login</a>
         </li>
       </ul>
-    </div>
+    </nav>
   );
-}
+};
 export default Nav;
