@@ -8,11 +8,7 @@ import Bookingpage from "./components/Bookingpage";
 function App() {
   return (
     <>
-      <Header />
       <Nav />
-      <Bookingpage />
-      <Main />
-      <Footer />
     </>
   );
 }
