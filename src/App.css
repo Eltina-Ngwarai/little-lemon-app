@@ -135,6 +135,19 @@ button {
   width: 30%;
   padding: 20px;
 }
+.menu-container {
+  margin: 110px auto;
+  padding: 10px 13%;
+}
+.menu-container h2 {
+  color: #000;
+}
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
 /* Media query for screens with a maximum width of 768px (adjust as needed) */
 @media (max-width: 768px) {
@@ -160,5 +173,8 @@ button {
     width: 100%;
     background-color: #495e57;
     transition: all 0.3s ease-in-out;
+  }
+  .banner-img {
+    display: none;
   }
 }
