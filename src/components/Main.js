@@ -4,7 +4,15 @@ import Header from "./Header";
 import Bookingpage from "./Bookingpage";
 import ConfirmedBooking from "./ConfirmedBooking";
 
-function Main() {
+const Main = () => {
+  // const [availableTimes, setAvailableTimes] = useState([
+  //   "17:00",
+  //   "18:00",
+  //   "19:00",
+  //   "20:00",
+  //   "21:00",
+  //   "22:00",
+  // ]);
   const seedRandom = function (seed) {
     var m = 2 ** 35 - 31;
     var a = 185852;
@@ -17,6 +25,7 @@ function Main() {
   const fetchAPI = function (date) {
     let result = [];
     let random = seedRandom(date.getDate());
+
     for (let i = 17; i <= 23; i++) {
       if (random() < 0.5) {
         result.push(i + ":00");
@@ -40,7 +49,6 @@ function Main() {
   }
 
   const navigate = useNavigate();
-
   function submitForm(formData) {
     if (submitAPI(formData)) {
       navigate("/confirmed");
@@ -48,7 +56,7 @@ function Main() {
   }
 
   return (
-    <main>
+    <main className="main">
       <Routes>
         <Route path="/" element={<Header />} />
         <Route
@@ -65,6 +73,6 @@ function Main() {
       </Routes>
     </main>
   );
-}
+};
 
 export default Main;
