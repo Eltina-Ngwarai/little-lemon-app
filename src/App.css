@@ -194,7 +194,8 @@ label {
   gap: 2rem 1rem;
 }
 .menuItems {
-  width: 350px;
+  height: 400px;
+  width: 330px;
   background: #a9c8be;
   border-radius: 8px;
 }
