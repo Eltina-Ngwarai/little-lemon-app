@@ -5,14 +5,6 @@ import Bookingpage from "./Bookingpage";
 import ConfirmedBooking from "./ConfirmedBooking";
 
 const Main = () => {
-  // const [availableTimes, setAvailableTimes] = useState([
-  //   "17:00",
-  //   "18:00",
-  //   "19:00",
-  //   "20:00",
-  //   "21:00",
-  //   "22:00",
-  // ]);
   const seedRandom = function (seed) {
     var m = 2 ** 35 - 31;
     var a = 185852;

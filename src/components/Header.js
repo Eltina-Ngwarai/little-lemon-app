@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import food from "../components/images/food.jpg";
 
 function Header() {
@@ -13,8 +14,9 @@ function Header() {
               We are a family owned Mediterraneran restaurant, focused on
               traditional recipes served with a modern twist.
             </p>
-
-            <button aria-label="On Click">Reserve Table</button>
+            <Link to="/booking">
+              <button aria-label="On Click">Reserve Table</button>
+            </Link>
           </div>
           <div className="banner-img">
             <img src={food} alt="food" />
