@@ -41,7 +41,9 @@ const Main = () => {
   }
 
   const navigate = useNavigate();
+
   function submitForm(formData) {
+    console.log("Button Clicked!"); // Add this line for debugging
     if (submitAPI(formData)) {
       navigate("/confirmed");
     }

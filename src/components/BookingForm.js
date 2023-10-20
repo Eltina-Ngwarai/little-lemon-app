@@ -80,6 +80,7 @@ const BookingForm = (props) => {
                 value={"Make Your Reservation"}
               />
             </div>
+            <button onClick={props.submitForm}>Reserve Table</button>
           </fieldset>
         </form>
       </section>
