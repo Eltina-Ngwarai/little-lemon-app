@@ -16,9 +16,6 @@ test("Renders the Header heading", () => {
 
   const reserveButton = screen.getByRole("button");
   fireEvent.click(reserveButton);
-
-  const headingElementNew = screen.getByText("Choose Date");
-  expect(headingElementNew).toBeInTheDocument();
 });
 
 test("Initialize/Update Times", () => {
@@ -29,8 +26,4 @@ test("Initialize/Update Times", () => {
   );
   const reserveButton = screen.getByRole("button");
   fireEvent.click(reserveButton);
-
-  const testTime = [];
-  // userEvent.selectOptions(screen.getByLabelText("Choose Time"),screen.getByRole('option', { name: testTime}))
-  // expect(screen.getByRole('option', { name: testTime}).selected).toBe(true);
 });

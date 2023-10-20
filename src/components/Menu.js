@@ -1,12 +1,43 @@
 import React from "react";
 import recipes from "./Recipes";
+import Swal from "sweetalert2";
 
-function Menu() {
+const Menu = () => {
+  const handleOrder = (id) => {
+    console.log(id);
+
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger",
+      },
+      buttonsStyling: false,
+    });
+
+    swalWithBootstrapButtons
+      .fire({
+        title: "Do you want to confirm order?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: false,
+        confirmButtonText: "Yes, order it!",
+        reverseButtons: true,
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          swalWithBootstrapButtons.fire(
+            "Orderd!",
+            "Your order has been confirmed.",
+            "success"
+          );
+        }
+      });
+  };
   return (
     <div className="menu-container">
-      <div>
-        <h2>This Week's Specials!</h2>
-        <button>Order Menu</button>
+      <div className="menu-header">
+        <h2>This weeks specials!</h2>
+        <button>Online Menu</button>
       </div>
       <div className="cards">
         {recipes.map((recipe) => (
@@ -15,16 +46,21 @@ function Menu() {
             <div className="menu-content">
               <div className="heading">
                 <h5>{recipe.title}</h5>
-                <p>{recipe.price}</p>
+                <p>${recipe.price}</p>
               </div>
               <p>{recipe.description}</p>
-              <button className="orderBtn">Order Now</button>
+              <button
+                className="orderbtn"
+                onClick={() => handleOrder(recipe.id)}
+              >
+                Order Now
+              </button>
             </div>
           </div>
         ))}
       </div>
     </div>
   );
-}
+};
 
 export default Menu;

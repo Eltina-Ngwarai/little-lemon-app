@@ -1,11 +1,11 @@
 import React, { useReducer } from "react";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import Header from "./Header";
-import Bookingpage from "./Bookingpage";
+import Booking from "./Booking";
 import ConfirmedBooking from "./ConfirmedBooking";
 
 const Main = () => {
-  const seedRandom = function (seed) {
+  const seededRandom = function (seed) {
     var m = 2 ** 35 - 31;
     var a = 185852;
     var s = seed % m;
@@ -16,19 +16,18 @@ const Main = () => {
 
   const fetchAPI = function (date) {
     let result = [];
-    let random = seedRandom(date.getDate());
+    let random = seededRandom(date.getDate());
 
     for (let i = 17; i <= 23; i++) {
       if (random() < 0.5) {
         result.push(i + ":00");
       }
-      if (random() > 0.5) {
+      if (random() < 0.5) {
         result.push(i + ":30");
       }
     }
     return result;
   };
-
   const submitAPI = function (formData) {
     return true;
   };
@@ -37,13 +36,10 @@ const Main = () => {
   const [state, dispatch] = useReducer(updateTimes, initialState);
 
   function updateTimes(state, date) {
-    return { availableTimes: fetchAPI(new Date()) };
+    return { availableTimes: fetchAPI(new Date(date)) };
   }
-
   const navigate = useNavigate();
-
   function submitForm(formData) {
-    console.log("Button Clicked!"); // Add this line for debugging
     if (submitAPI(formData)) {
       navigate("/confirmed");
     }
@@ -54,9 +50,9 @@ const Main = () => {
       <Routes>
         <Route path="/" element={<Header />} />
         <Route
-          path="/bookingpage"
+          path="/booking"
           element={
-            <Bookingpage
+            <Booking
               availableTimes={state}
               dispatch={dispatch}
               submitForm={submitForm}

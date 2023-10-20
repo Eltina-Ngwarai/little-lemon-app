@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 
 const BookingForm = (props) => {
+  const [occasion, setOccasion] = useState("");
+  const [guests, setGuests] = useState("");
   const [date, setDate] = useState("");
   const [times, setTimes] = useState("");
-  const [guests, setGuests] = useState("");
-  const [occasion, setOccasion] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSumbit = (e) => {
     e.preventDefault();
     props.submitForm(e);
   };
@@ -19,7 +20,7 @@ const BookingForm = (props) => {
   return (
     <header>
       <section>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSumbit}>
           <fieldset className="formField">
             <div>
               <label htmlFor="book-date">Choose Date:</label>
@@ -51,12 +52,14 @@ const BookingForm = (props) => {
                 id="book-guests"
                 min="1"
                 value={guests}
-                onChange={(e) => setGuests(e.target.value)}
-                type="number"
+                onChange={(e) => {
+                  setGuests(e.target.value);
+                }}
+                type={"number"}
                 placeholder={0}
-                max="10"
+                max={10}
                 required
-              />
+              ></input>
             </div>
             <div>
               <label htmlFor="book-occasion">Occasion:</label>
@@ -67,20 +70,18 @@ const BookingForm = (props) => {
                 onChange={(e) => setOccasion(e.target.value)}
                 required
               >
+                <option value="">Select an Option</option>
                 <option>Birthday</option>
                 <option>Anniversary</option>
-                <option>Wedding</option>
-                <option>Other</option>
               </select>
             </div>
-            <div className="btnRecieve">
+            <div className="btnReceive">
               <input
                 aria-label="On Click"
-                type="submit"
+                type={"submit"}
                 value={"Make Your Reservation"}
-              />
+              ></input>
             </div>
-            <button onClick={props.submitForm}>Reserve Table</button>
           </fieldset>
         </form>
       </section>
