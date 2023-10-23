@@ -41,9 +41,11 @@ const BookingForm = (props) => {
                 required
               >
                 <option value="">Select a Time</option>
-                {props.availableTimes.availableTimes.map((availableTimes) => {
-                  return <option key={availableTimes}>{availableTimes}</option>;
-                })}
+                {props.availableTimes && props.availableTimes.availableTimes
+                  ? props.availableTimes.availableTimes.map((availableTime) => (
+                      <option key={availableTime}>{availableTime}</option>
+                    ))
+                  : null}
               </select>
             </div>
             <div>

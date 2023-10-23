@@ -34,7 +34,7 @@ const Menu = () => {
       });
   };
   return (
-    <div className="menu-container">
+    <section className="menu-container">
       <div className="menu-header">
         <h2>This weeks specials!</h2>
         <button>Online Menu</button>
@@ -59,7 +59,7 @@ const Menu = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
