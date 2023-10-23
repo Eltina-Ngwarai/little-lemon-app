@@ -35,6 +35,7 @@ const BookingForm = (props) => {
             <div>
               <label htmlFor="book-time">Choose Time:</label>
               <select
+                data-testid="book-time"
                 id="book-time"
                 value={times}
                 onChange={(e) => setTimes(e.target.value)}
