@@ -37,7 +37,6 @@ const Menu = () => {
     <section className="menu-container">
       <div className="menu-header">
         <h2>This weeks specials!</h2>
-        <button>Online Menu</button>
       </div>
       <div className="cards">
         {recipes.map((recipe) => (
